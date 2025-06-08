@@ -90,8 +90,8 @@ Using **Grow A Garden Calculator** is incredibly simple:
 
 ## 🔗 Related Links
 
-- [Use Grow A Garden Calculator Online](https://growagardencalculator.online)
-- [Crop Value List](https://growagardencalculator.online/grow-a-garden-value/)
+- [Use Grow A Garden Calculator Online](https://growagarden-calculator.github.io)
+- [Crop Value List](https://growagarden-calculator.github.io/grow-a-garden-value/)
 - [GitHub Project](https://github.com/growagarden-calculator)
 
 ## 📞 Contact Us
