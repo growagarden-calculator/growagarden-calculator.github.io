@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+
+    <title>Grow a Garden Calculator: Calculate Crop Value & Mutations | Free Roblox Tool</title>
+    <meta
+      name="description"
+      content="Free Grow a Garden Calculator for Roblox players! Calculate crop values with mutations like Golden, Rainbow, and Frozen. Optimize your planting strategy and maximize profits in the popular simulation game."
+    />
+
+    <meta
+      property="og:title"
+      content="Grow a Garden Calculator: Calculate Crop Value & Mutations | Free Roblox Tool"
+    />
+    <meta
+      property="og:description"
+      content="Free Grow a Garden Calculator for Roblox players! Calculate crop values with mutations like Golden, Rainbow, and Frozen. Optimize your planting strategy and maximize profits in the popular simulation game."
+    />
+    <meta property="og:url" content="index.html" />
+    <meta property="og:site_name" content="growagardencalculator.online" />
+    <meta property="og:image" content="assets/growagardencalculator.png" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Grow a Garden Calculator: Calculate Crop Value & Mutations | Free Roblox Tool"
+    />
+    <meta
+      name="twitter:description"
+      content="Free Grow a Garden Calculator for Roblox players! Calculate crop values with mutations like Golden, Rainbow, and Frozen. Optimize your planting strategy and maximize profits in the popular simulation game."
+    />
+    <meta name="twitter:image" content="assets/growagardencalculator.png" />
+    <link rel="canonical" href="index.html" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <link rel="stylesheet" href="css/normalize.min.css" />
+    <link rel="stylesheet" href="css/fonts.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="./toastify.min.css"> -->
+    <!-- <script type="text/javascript" src="./toastify-js.js"></script> -->
+    <script src="js/tailwindcss.js"></script>
+
+    <!-- tom-select -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#10B981",
+              "primary-dark": "#059669",
+              "primary-light": "#D1FAE5",
+              "primary-lighter": "#ECFDF5",
+              accent: "#F59E0B",
+              game: "#8B5CF6",
+              "game-pink": "#EC4899",
+              "game-blue": "#3B82F6",
+            },
+            animation: {
+              'gradient-x': 'gradient-x 15s ease infinite',
+              'float': 'float 6s ease-in-out infinite',
+              'glow': 'glow 2s ease-in-out infinite alternate',
+            },
+            keyframes: {
+              'gradient-x': {
+                '0%, 100%': {
+                  'background-size': '200% 200%',
+                  'background-position': 'left center'
+                },
+                '50%': {
+                  'background-size': '200% 200%',
+                  'background-position': 'right center'
+                },
+              },
+              'float': {
+                '0%, 100%': { transform: 'translateY(0px)' },
+                '50%': { transform: 'translateY(-10px)' },
+              },
+              'glow': {
+                'from': { 'box-shadow': '0 0 20px #10B981' },
+                'to': { 'box-shadow': '0 0 30px #10B981, 0 0 40px #10B981' },
+              },
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="w-full max-w-7xl m-auto px-4 text-gray-800 font-sans bg-gradient-to-br from-primary-lighter via-white to-blue-50 min-h-screen">
+        <header
+     class="h-20 flex justify-between backdrop-blur-md bg-white/80 border-b border-primary-light/50 items-center py-4 px-6 rounded-b-2xl shadow-lg"
+    >
+      <a
+        href="index.html"
+        alt="Grow a Garden Calculator Home"
+        aria-label="Grow a Garden Calculator Homepage"
+        class="flex items-center"
+      >
+        <img
+          src="assets/logo.png"
+          alt="Grow a Garden Calculator"
+          class="w-10 h-10"
+        />
+
+        <span class="ml-3 font-black text-lg bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent"
+          >Grow a Garden Calculator</span
+        >
+      </a>
+      <div class="flex items-center gap-4">
+        <nav id="nav-menu" class="hidden lg:block">
+          <div
+            class="bg-white/90 lg:rounded-full flex flex-col fixed z-[9999] top-16 right-4 lg:static p-4 text-sm lg:text-base lg:flex-row items-center gap-6 font-semibold backdrop-blur-md shadow-xl border border-primary-light/50"
+          >
+            <a
+              href="index.html"
+              class="nav-link text-gray-700 hover:text-primary hover:bg-primary-light/50 px-4 py-2 rounded-xl transition-all duration-300 transform hover:scale-105"
+              >Home</a
+            >
+
+            <a
+              href="grow-a-garden-value/index.html"
+              class="nav-link text-gray-700 hover:text-primary hover:bg-primary-light/50 px-4 py-2 rounded-xl transition-all duration-300 transform hover:scale-105"
+              >List &amp; Info</a
+            >
+
+            <a
+              href="index.html#faqs"
+              class="nav-link text-gray-700 hover:text-primary hover:bg-primary-light/50 px-4 py-2 rounded-xl transition-all duration-300 transform hover:scale-105"
+              >FAQs</a
+            >
+          </div>
+        </nav>
+        <button id="menu-toggle" class="lg:hidden p-2">
+          <img src="assets/hum.svg" class="w-6 h-6" alt="unfold" />
+        </button>
+      </div>
+    </header>
+
+    <style>
+      .toolbox {
+        background-color: #f0fdf4; /* Light green background */
+        color: #166534; /* Dark green text */
+        padding: 20px;
+        max-width: 1000px;
+        margin: 40px auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23a7f3d0' fill-opacity='0.4'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414zM41 0c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zM52 10c0 2.21-1.79 4-4 4-3.314 0-6 2.686-6 6 0 2.21-1.79 4-4 4v2c3.314 0 6-2.686 6-6 0-2.21 1.79-4 4-4 3.314 0 6 2.686 6-6h-2zM1.464 7.95l8.486 8.486-1.414 1.414L0 9.364l1.414-1.414z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      }
+      .radio-group-label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #15803d; /* Darker green for labels */
+      }
+      .radio-group {
+        background: #ecfdf5;
+        padding: 10px 15px;
+        border: 1px solid #a7f3d0;
+        border-radius: 6px;
+        margin-bottom: 20px;
+      }
+      .radio-group .radio-option {
+        display: flex;
+        align-items: center;
+      }
+
+      .radio-group .radio-option input[type="radio"] {
+        margin-right: 10px;
+        accent-color: #10b981;
+      }
+      .radio-group .radio-option label {
+        margin-bottom: 0;
+        font-weight: normal;
+      }
+      h1 {
+        text-align: center;
+        color: #059669; /* Medium green for heading */
+        margin-bottom: 30px;
+      }
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #15803d; /* Darker green for labels */
+      }
+      input[type="number"],
+      select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #6ee7b7; /* Light green border */
+        border-radius: 6px;
+        background-color: #d1fae5; /* Very light green input background */
+        color: #065f46; /* Dark green text in inputs */
+        box-sizing: border-box;
+      }
+      .checkbox-group {
+        background: #ecfdf5; /* Lighter green for checkbox group */
+        padding: 15px;
+        border: 1px solid #a7f3d0; /* Lighter green border */
+        border-radius: 6px;
+        margin-bottom: 20px;
+      }
+      .checkbox-group .row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px 0;
+        border-bottom: 1px solid #d1fae5; /* Very light green separator */
+      }
+      .checkbox-group .row:last-child {
+        border-bottom: none;
+      }
+      .checkbox-group .row label {
+        flex: 1;
+        margin-bottom: 0;
+        font-weight: normal;
+      }
+      .checkbox-group .row input[type="checkbox"] {
+        margin-left: 10px;
+        accent-color: #10b981; /* Medium green for checkbox accent */
+      }
+      button {
+        padding: 12px 20px;
+        background-color: #10b981; /* Medium green button */
+        color: white;
+        border: none;
+        width: 100%;
+        cursor: pointer;
+        border-radius: 6px;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+      }
+      button:hover {
+        background-color: #059669; /* Darker green on hover */
+      }
+      .result {
+        margin-top: 30px;
+        padding: 20px;
+        background: #ffffff; /* White background for result */
+        border: 2px dashed #10b981; /* Medium green dashed border */
+        border-radius: 6px;
+        text-align: center;
+        font-size: 18px;
+        color: #065f46; /* Dark green text for result */
+      }
+      .result strong {
+        font-size: 22px;
+        color: #047857; /* Even darker green for the value */
+      }
+      .checkbox-option {
+        display: flex;
+        align-items: center;
+        margin-bottom: 8px;
+      }
+      .checkbox-option label {
+        margin-bottom: 0;
+        font-weight: normal;
+      }
+      .checkbox-option input[type="checkbox"] {
+        margin-right: 10px;
+        accent-color: #10b981; /* Medium green for checkbox accent */
+      }
+      /* Basic responsive adjustments */
+      @media (max-width: 600px) {
+        body {
+          margin: 20px;
+          padding: 15px;
+        }
+        h1 {
+          font-size: 24px;
+        }
+      }
+
+      /* Tom Select Customization */
+      .ts-wrapper.tomselected {
+        /* Ensures the wrapper takes up the mt-1 if the select itself had it */
+        /* If #cropSelect has mt-1, TomSelect might put its wrapper as a sibling, 
+       or replace it. If it replaces, this class is on the original hidden select.
+       If it's a sibling, the div.flex-1.mt-4 handles the outer margin. 
+       The mt-1 on #cropSelect should make the TomSelect wrapper align with the baseValueInput.
+    */
+      }
+
+      .ts-wrapper .ts-control {
+        background-color: #ffffff;
+        border: 1px solid #d1d5db;
+        border-radius: 0.5rem; /* rounded-lg */
+        box-shadow: none;
+        color: #1f2937;
+        font-size: 0.875rem; /* text-sm */
+        line-height: 1.25rem;
+        padding: 8px 12px;
+        min-height: 40px;
+        box-sizing: border-box;
+        transition: all 0.2s ease;
+      }
+
+      .ts-wrapper.focus .ts-control,
+      .ts-wrapper .ts-control:focus {
+        outline: none;
+        border-color: #10B981;
+        box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+      }
+
+      .dark .ts-wrapper .ts-control {
+        background-color: #374151; /* dark:bg-gray-700 */
+        border-color: #4b5563; /* dark:border-gray-600 */
+        color: #f3f4f6; /* dark:text-gray-100 */
+      }
+
+      .dark .ts-wrapper.focus .ts-control,
+      .dark .ts-wrapper .ts-control:focus {
+        border-color: #6ee7b7;
+        box-shadow: 0 0 0 1px #6ee7b7, 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      }
+
+      .ts-wrapper .ts-control > input::placeholder {
+        color: #9ca3af; /* text-gray-400 */
+        opacity: 1; /* Browsers often apply lower opacity */
+      }
+
+      .dark .ts-wrapper .ts-control > input::placeholder {
+        color: #6b7280; /* dark:text-gray-500 */
+        opacity: 1;
+      }
+
+      .ts-wrapper .ts-control > input {
+        color: inherit;
+        font-size: inherit;
+        line-height: inherit;
+      }
+
+      .ts-dropdown {
+        background-color: #ffffff;
+        border: 1px solid #d1d5db;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        color: #1f2937;
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+        z-index: 10;
+      }
+
+      .dark .ts-dropdown {
+        background-color: #374151;
+        border-color: #4b5563;
+        color: #f3f4f6;
+      }
+
+      .ts-dropdown .ts-option {
+        padding: 0.5rem 0.75rem; /* py-2 px-3 */
+      }
+
+      .ts-dropdown .active,
+      .ts-dropdown .ts-option.active {
+        background-color: #e0e7ff; /* bg-indigo-100 (example) */
+        color: #6ee7b7; /* text-indigo-800 (example) */
+      }
+
+      .dark .ts-dropdown .active,
+      .dark .ts-dropdown .ts-option.active {
+        background-color: #6ee7b7; /* bg-indigo-600 (example) */
+        color: #fff;
+      }
+
+      .ts-dropdown [data-selectable].option {
+        color: #1f2937;
+        padding: 8px 12px;
+        transition: all 0.2s ease;
+      }
+
+      .ts-dropdown [data-selectable].option:hover {
+        background-color: #10B981;
+        color: #fff;
+      }
+
+      .ts-dropdown [data-selectable].option.selected {
+        background-color: #10B981;
+        color: #fff;
+      }
+
+      .ts-dropdown .active,
+      .ts-dropdown .ts-option.active {
+        background-color: #10B981;
+        color: #fff !important;
+      }
+    </style>
+
+    <main>
+      <section class="mt-24 text-center" id="calculator">
+        <!-- Hero Section -->
+        <div class="relative overflow-hidden bg-gradient-to-br from-primary-lighter via-white to-game-blue/10 rounded-3xl p-12 mb-12 shadow-2xl border border-primary-light/30">
+          <div class="absolute inset-0 bg-gradient-to-r from-primary/5 to-game/5 animate-gradient-x"></div>
+          <div class="relative z-10">
+            <h1 class="text-4xl md:text-6xl font-black mb-6 bg-gradient-to-r from-primary via-game to-game-pink bg-clip-text text-transparent animate-float">
+              🌱 Grow a Garden Calculator
+            </h1>
+            <p class="text-lg md:text-xl text-gray-600 mb-8 max-w-4xl mx-auto leading-relaxed">
+              The ultimate <span class="font-bold text-primary">Roblox tool</span> for maximizing your garden profits! Calculate crop values with mutations and discover the true worth of your harvest.
+            </p>
+          </div>
+        </div>
+
+        <!-- Calculator Card -->
+        <div class="bg-white/90 backdrop-blur-md rounded-2xl p-6 shadow-xl border border-primary-light/50 mb-12">
+          <!-- Result Display -->
+          <div class="bg-gradient-to-r from-primary-light to-primary-lighter rounded-xl p-4 mb-6 text-center border border-primary/20">
+            <div class="flex items-center justify-center gap-3">
+              <img src="assets/logo.png" alt="Coin" class="w-6 h-6" />
+              <span class="text-lg font-semibold text-gray-700">Total Value:</span>
+              <strong id="calculatedValueDisplay" class="text-2xl font-black text-primary">0</strong>
+            </div>
+          </div>
+
+          <!-- Input Controls -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+            <div>
+              <label for="cropSelect" class="block text-sm font-medium text-gray-700 mb-2">🌾 Select Crop</label>
+              <select id="cropSelect" class="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200 text-gray-800"></select>
+            </div>
+            <div>
+              <label for="baseValueInput" class="block text-sm font-medium text-gray-700 mb-2">💎 Base Value</label>
+              <input
+                type="number"
+                id="baseValueInput"
+                placeholder="Enter value"
+                class="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200 text-gray-800"
+              />
+            </div>
+          </div>
+
+          <!-- Growth Mutations -->
+          <div class="mb-6">
+            <h3 class="text-lg font-semibold text-gray-800 mb-3">✨ Growth Mutations</h3>
+            <div class="grid grid-cols-3 gap-3">
+              <label class="cursor-pointer">
+                <input type="radio" id="growthDefault" name="growthMutation" value="1" checked class="sr-only" />
+                <div class="bg-gray-50 hover:bg-gray-100 p-2 rounded-lg border-2 border-transparent hover:border-gray-300 transition-all duration-200 text-center">
+                  <div class="text-lg mb-1">🌱</div>
+                  <div class="font-medium text-xs text-gray-700">Normal x1</div>
+                </div>
+              </label>
+              <label class="cursor-pointer">
+                <input type="radio" id="growthGolden" name="growthMutation" value="20" class="sr-only" />
+                <div class="bg-yellow-50 hover:bg-yellow-100 p-2 rounded-lg border-2 border-transparent hover:border-yellow-300 transition-all duration-200 text-center">
+                  <div class="text-lg mb-1">🌟</div>
+                  <div class="font-medium text-xs text-yellow-700">Golden x20</div>
+                </div>
+              </label>
+              <label class="cursor-pointer">
+                <input type="radio" id="growthRainbow" name="growthMutation" value="50" class="sr-only" />
+                <div class="bg-purple-50 hover:bg-purple-100 p-2 rounded-lg border-2 border-transparent hover:border-purple-300 transition-all duration-200 text-center">
+                  <div class="text-lg mb-1">🌈</div>
+                  <div class="font-medium text-xs text-purple-700">Rainbow x50</div>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Environmental Mutations -->
+          <div class="mb-6">
+            <h3 class="text-lg font-semibold text-gray-800 mb-3">🌡️ Environmental (Choose One)</h3>
+            <div class="grid grid-cols-4 gap-2">
+              <label class="cursor-pointer">
+                <input type="radio" id="tempDefault" name="temperatureMutation" value="0" checked class="sr-only" />
+                <div class="bg-gray-50 hover:bg-gray-100 p-2 rounded-lg border-2 border-transparent hover:border-gray-300 transition-all duration-200 text-center">
+                  <div class="text-sm mb-1">🌱</div>
+                  <div class="font-medium text-xs text-gray-700">Default +0</div>
+                </div>
+              </label>
+              <label class="cursor-pointer">
+                <input type="radio" id="tempWet" name="temperatureMutation" value="1" class="sr-only" />
+                <div class="bg-blue-50 hover:bg-blue-100 p-2 rounded-lg border-2 border-transparent hover:border-blue-300 transition-all duration-200 text-center">
+                  <div class="text-sm mb-1">💧</div>
+                  <div class="font-medium text-xs text-blue-700">Wet +1</div>
+                </div>
+              </label>
+              <label class="cursor-pointer">
+                <input type="radio" id="tempChilled" name="temperatureMutation" value="1" class="sr-only" />
+                <div class="bg-cyan-50 hover:bg-cyan-100 p-2 rounded-lg border-2 border-transparent hover:border-cyan-300 transition-all duration-200 text-center">
+                  <div class="text-sm mb-1">❄️</div>
+                  <div class="font-medium text-xs text-cyan-700">Chilled +1</div>
+                </div>
+              </label>
+              <label class="cursor-pointer">
+                <input type="radio" id="tempFrozen" name="temperatureMutation" value="9" class="sr-only" />
+                <div class="bg-indigo-50 hover:bg-indigo-100 p-2 rounded-lg border-2 border-transparent hover:border-indigo-300 transition-all duration-200 text-center">
+                  <div class="text-sm mb-1">🧊</div>
+                  <div class="font-medium text-xs text-indigo-700">Frozen +9</div>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Stackable Mutations -->
+          <div class="mb-4">
+            <h3 class="text-lg font-semibold text-gray-800 mb-3">🎯 Stackable Mutations</h3>
+            <div class="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2">
+              <label class="cursor-pointer">
+                <input type="checkbox" id="envChocolate" value="1" class="env-mutation sr-only" />
+                <div class="bg-amber-50 hover:bg-amber-100 p-2 rounded-lg border-2 border-transparent hover:border-amber-300 transition-all duration-200 text-center">
+                  <div class="text-sm mb-1">🍫</div>
+                  <div class="font-medium text-xs text-amber-700">Chocolate +1</div>
+                </div>
+              </label>
+              <label class="cursor-pointer">
+                <input type="checkbox" id="envMoonlit" value="1" class="env-mutation sr-only" />
+                <div class="bg-slate-50 hover:bg-slate-100 p-2 rounded-lg border-2 border-transparent hover:border-slate-300 transition-all duration-200 text-center">
+                  <div class="text-sm mb-1">🌙</div>
+                  <div class="font-medium text-xs text-slate-700">Moonlit +1</div>
+                </div>
+              </label>
+              <label class="cursor-pointer">
+                <input type="checkbox" id="envPollinated" value="2" class="env-mutation sr-only" />
+                <div class="bg-yellow-50 hover:bg-yellow-100 p-2 rounded-lg border-2 border-transparent hover:border-yellow-300 transition-all duration-200 text-center">
+                  <div class="text-sm mb-1">🐝</div>
+                  <div class="font-medium text-xs text-yellow-700">Pollinated +2</div>
+                </div>
+              </label>
+              <label class="cursor-pointer">
+                <input type="checkbox" id="envBloodlit" value="3" class="env-mutation sr-only" />
+                <div class="bg-red-50 hover:bg-red-100 p-2 rounded-lg border-2 border-transparent hover:border-red-300 transition-all duration-200 text-center">
+                  <div class="text-sm mb-1">🩸</div>
+                  <div class="font-medium text-xs text-red-700">Bloodlit +3</div>
+                </div>
+              </label>
+              <label class="cursor-pointer">
+                <input type="checkbox" id="envPlasma" value="4" class="env-mutation sr-only" />
+                <div class="bg-green-50 hover:bg-green-100 p-2 rounded-lg border-2 border-transparent hover:border-green-300 transition-all duration-200 text-center">
+                  <div class="text-sm mb-1">⚡</div>
+                  <div class="font-medium text-xs text-green-700">Plasma +4</div>
+                </div>
+              </label>
+              <label class="cursor-pointer">
+                <input type="checkbox" id="envHoneyGlazed" value="4" class="env-mutation sr-only" />
+                <div class="bg-orange-50 hover:bg-orange-100 p-2 rounded-lg border-2 border-transparent hover:border-orange-300 transition-all duration-200 text-center">
+                  <div class="text-sm mb-1">🍯</div>
+                  <div class="font-medium text-xs text-orange-700">Honey +4</div>
+                </div>
+              </label>
+              <label class="cursor-pointer">
+                <input type="checkbox" id="envZombified" value="24" class="env-mutation sr-only" />
+                <div class="bg-emerald-50 hover:bg-emerald-100 p-2 rounded-lg border-2 border-transparent hover:border-emerald-300 transition-all duration-200 text-center">
+                  <div class="text-sm mb-1">🧟</div>
+                  <div class="font-medium text-xs text-emerald-700">Zombie +24</div>
+                </div>
+              </label>
+              <label class="cursor-pointer">
+                <input type="checkbox" id="envShocked" value="99" class="env-mutation sr-only" />
+                <div class="bg-violet-50 hover:bg-violet-100 p-2 rounded-lg border-2 border-transparent hover:border-violet-300 transition-all duration-200 text-center">
+                  <div class="text-sm mb-1">⚡</div>
+                  <div class="font-medium text-xs text-violet-700">Shocked +99</div>
+                </div>
+              </label>
+              <label class="cursor-pointer">
+                <input type="checkbox" id="envCelestial" value="119" class="env-mutation sr-only" />
+                <div class="bg-indigo-50 hover:bg-indigo-100 p-2 rounded-lg border-2 border-transparent hover:border-indigo-300 transition-all duration-200 text-center">
+                  <div class="text-sm mb-1">✨</div>
+                  <div class="font-medium text-xs text-indigo-700">Celestial +119</div>
+                </div>
+              </label>
+              <label class="cursor-pointer">
+                <input type="checkbox" id="envDisco" value="124" class="env-mutation sr-only" />
+                <div class="bg-pink-50 hover:bg-pink-100 p-2 rounded-lg border-2 border-transparent hover:border-pink-300 transition-all duration-200 text-center">
+                  <div class="text-sm mb-1">🕺</div>
+                  <div class="font-medium text-xs text-pink-700">Disco +124</div>
+                </div>
+              </label>
+              <label class="cursor-pointer">
+                <input type="checkbox" id="envVoidtouched" value="134" class="env-mutation sr-only" />
+                <div class="bg-purple-50 hover:bg-purple-100 p-2 rounded-lg border-2 border-transparent hover:border-purple-300 transition-all duration-200 text-center">
+                  <div class="text-sm mb-1">🌌</div>
+                  <div class="font-medium text-xs text-purple-700">Void +134</div>
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mt-32" id="about">
+        <div class="bg-gradient-to-br from-white via-primary-lighter/30 to-game-blue/10 rounded-3xl p-12 shadow-2xl border border-primary-light/30">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-black mb-6 bg-gradient-to-r from-primary to-game bg-clip-text text-transparent">
+              🎮 What is Grow a Garden Game?
+            </h2>
+            <p class="text-xl text-gray-600 font-semibold">The most popular Roblox simulation game adventure</p>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+            <div class="space-y-6">
+              <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-primary-light/50 transform hover:scale-105 transition-all duration-300">
+                <div class="flex items-start gap-4">
+                  <div class="text-3xl">🌱</div>
+                  <div>
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">Amazing Gardening Adventure</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                      Grow a Garden is the most popular simulation game on Roblox! Step into this amazing gardening adventure where you plant seeds, nurture your crops, and unlock adorable pets.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-primary-light/50 transform hover:scale-105 transition-all duration-300">
+                <div class="flex items-start gap-4">
+                  <div class="text-3xl">🐾</div>
+                  <div>
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">Cute Pets & Simple Crops</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                      Start by planting simple crops like carrots, strawberries, and tomatoes. Unlock special pets like bunnies, dogs, and pandas that help your crops grow faster!
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-6">
+              <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-primary-light/50 transform hover:scale-105 transition-all duration-300">
+                <div class="flex items-start gap-4">
+                  <div class="text-3xl">✨</div>
+                  <div>
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">Rare Mutations & Big Profits</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                      The best part is finding rare mutations - Golden, Rainbow, Wet, Chilled, and Frozen crops that are worth much more money. Build your dream garden and maximize profits!
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-primary-light/50 transform hover:scale-105 transition-all duration-300">
+                <div class="flex items-start gap-4">
+                  <div class="text-3xl">🧮</div>
+                  <div>
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">Smart Strategy Tools</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                      Understanding crop values and mutations is super important for smart players. That's why our Grow a Garden Calculator is the perfect tool to help you succeed!
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mt-32 text-center h-full" id="about">
+        <div class="w-full">
+          <div class="flex items-center justify-center">
+            <div class="">
+              <h2 class="text-2xl text-light font-bold mb-2">
+                Why You Need a Grow a Garden Calculator
+              </h2>
+              <p
+                class="mb-10 opacity-75 text-md w-full md:w-2/3 mx-auto text-center"
+              >
+                Master the ultimate Roblox simulation game with smart calculations
+              </p>
+              <div class="text-md opacity-75 space-y-4 text-left">
+                <p>
+                  Playing Grow a Garden is easy and fun, but becoming a master gardener requires smart planning! Our Grow a Garden Calculator helps you make the best choices to grow your dream garden faster.
+                </p>
+
+                <p>
+                  <strong>Different Crop Values:</strong> Every crop in Grow a Garden has different prices. Carrots, strawberries, and tomatoes are great for beginners, while rare crops like Dragon Fruit and Starfruit are worth much more! Our Grow a Garden Calculator knows all the current prices so you can plan which seeds to buy.
+                </p>
+
+                <p>
+                  <strong>Amazing Mutations:</strong> The coolest part of Grow a Garden is discovering mutations! Golden crops are worth 20 times more, and Rainbow crops are worth 50 times more than normal crops. Plus, you can stack environmental mutations like Wet, Chilled, Frozen, and even super rare ones like Shocked and Celestial. Our Grow a Garden Calculator shows you exactly how much these mutations add to your profits.
+                </p>
+
+                <p>
+                  <strong>Smart Money Choices:</strong> Should you buy expensive seeds or stick with cheaper ones? Should you upgrade your tools or save for new pets? Our Grow a Garden Calculator helps you figure out which choices will make you the most money in this simulation game.
+                </p>
+
+                <p>
+                  <strong>Perfect Timing:</strong> Different crops take different amounts of time to grow. Some crops grow super fast but don't make much money, while others take longer but are worth way more. Use our Grow a Garden Calculator to find the perfect balance for your garden strategy!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mt-32 text-center h-full" id="how-to-play">
+        <div class="w-full">
+          <div class="flex items-center justify-center">
+            <div class="">
+              <h2 class="text-2xl text-light font-bold mb-4 md:mb-6">
+                How to Play Grow a Garden - Step by Step Guide
+              </h2>
+              <p class="mb-6 text-sm text-center">Master this popular Roblox simulation game with our easy guide</p>
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
+                <div class="bg-red p-6 rounded-lg">
+                  <div class="text-2xl mb-3">🌱</div>
+                  <h3 class="text-lg font-bold mb-2 text-light">1. Plant Your Seeds</h3>
+                  <p class="text-sm opacity-75">
+                    Equip your favorite seeds and click on the brown plots in your farm! Start with easy crops like carrots, strawberries, and tomatoes. Watch them start growing and get ready for harvest time!
+                  </p>
+                </div>
+                <div class="bg-red p-6 rounded-lg">
+                  <div class="text-2xl mb-3">💰</div>
+                  <h3 class="text-lg font-bold mb-2 text-light">2. Use Coins Wisely</h3>
+                  <p class="text-sm opacity-75">
+                    Buy new seeds, unlock adorable pets like bunnies and pandas, and upgrade your tools! Use our Grow a Garden Calculator to see which purchases give you the best value for your coins.
+                  </p>
+                </div>
+                <div class="bg-red p-6 rounded-lg">
+                  <div class="text-2xl mb-3">🐾</div>
+                  <h3 class="text-lg font-bold mb-2 text-light">3. Collect Cute Pets</h3>
+                  <p class="text-sm opacity-75">
+                    Unlock pets that help your garden grow faster! Dogs, cats, pandas, and other adorable animals each have special abilities to boost your farming in this simulation game.
+                  </p>
+                </div>
+                <div class="bg-red p-6 rounded-lg">
+                  <div class="text-2xl mb-3">✨</div>
+                  <h3 class="text-lg font-bold mb-2 text-light">4. Find Rare Mutations</h3>
+                  <p class="text-sm opacity-75">
+                    Discover amazing mutations like Golden, Rainbow, Wet, Chilled, and Frozen crops! These special variants are worth way more money. Use our Grow a Garden Calculator to see exactly how much!
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mt-32" id="features">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-black mb-6 bg-gradient-to-r from-primary to-game bg-clip-text text-transparent">
+            🚀 How to Use Our Calculator
+          </h2>
+          <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            Discover the amazing features that make our Grow a Garden Calculator the best tool for Roblox players
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="group">
+            <div class="bg-gradient-to-br from-primary-lighter via-white to-primary-light/50 rounded-3xl p-8 shadow-xl border-2 border-primary-light/50 transform group-hover:scale-105 transition-all duration-300 h-full">
+              <div class="text-center mb-6">
+                <div class="w-16 h-16 bg-gradient-to-br from-primary to-primary-dark rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300">
+                  <span class="text-2xl">🧮</span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-3">
+                  Easy Crop Value Calculator
+                </h3>
+              </div>
+              <p class="text-gray-600 leading-relaxed">
+                Simply pick your crop from our huge list - carrots, strawberries, tomatoes, and over 40 other plants! Then select any mutations like Golden, Rainbow, or Frozen. Our calculator instantly shows you exactly how much your crops are worth.
+              </p>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="bg-gradient-to-br from-game/10 via-white to-game-pink/10 rounded-3xl p-8 shadow-xl border-2 border-game/20 transform group-hover:scale-105 transition-all duration-300 h-full">
+              <div class="text-center mb-6">
+                <div class="w-16 h-16 bg-gradient-to-br from-game to-game-pink rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300">
+                  <span class="text-2xl">✨</span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-3">
+                  Discover Amazing Mutation Combos
+                </h3>
+              </div>
+              <p class="text-gray-600 leading-relaxed">
+                Want to know which mutations make the most money? Test different combinations! See how Golden mutations multiply your profits by 20x, or how stacking environmental mutations can boost your earnings even more.
+              </p>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="bg-gradient-to-br from-accent/10 via-white to-yellow-100 rounded-3xl p-8 shadow-xl border-2 border-accent/20 transform group-hover:scale-105 transition-all duration-300 h-full">
+              <div class="text-center mb-6">
+                <div class="w-16 h-16 bg-gradient-to-br from-accent to-yellow-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300">
+                  <span class="text-2xl">🎯</span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-3">
+                  Smart Planting Decisions
+                </h3>
+              </div>
+              <p class="text-gray-600 leading-relaxed">
+                Make smart choices about which seeds to buy! Compare different crops and see which ones give you the best profits. Whether you're starting with cheap carrots or investing in rare plants, plan your strategy perfectly.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="faqs" class="mt-32">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-black mb-6 bg-gradient-to-r from-primary to-game bg-clip-text text-transparent">
+            ❓ Frequently Asked Questions
+          </h2>
+          <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            Get answers to common questions about Grow a Garden Calculator
+          </p>
+        </div>
+        <div class="bg-gradient-to-br from-white via-primary-lighter/20 to-game-blue/5 rounded-3xl p-8 shadow-2xl border border-primary-light/30">
+          <div class="bg-white/60 backdrop-blur-sm rounded-2xl p-6 mb-6 shadow-lg border border-primary-light/30 transform hover:scale-105 transition-all duration-300">
+            <h3 class="text-lg font-bold text-gray-800 mb-3 flex items-center gap-2">
+              💰 How do I make money in Grow a Garden?
+            </h3>
+            <p class="text-gray-600 leading-relaxed">
+              Making money in Grow a Garden is super easy! Just plant seeds, wait for them to grow, then harvest and sell your crops. The cooler your crops look (like Golden or Rainbow ones), the more money you get! Our Grow a Garden Calculator shows you exactly how much each crop is worth, so you can plan the best strategy for your Roblox garden.
+            </p>
+          </div>
+
+          <div class="bg-white/60 backdrop-blur-sm rounded-2xl p-6 mb-6 shadow-lg border border-primary-light/30 transform hover:scale-105 transition-all duration-300">
+            <h3 class="text-lg font-bold text-gray-800 mb-3 flex items-center gap-2">
+              ✨ What are mutations in Grow a Garden and why are they awesome?
+            </h3>
+            <p class="text-gray-600 leading-relaxed">
+              Mutations are the coolest part of Grow a Garden! They're special versions of your crops that look amazing and are worth tons more money. You can get Golden crops (worth 20x more!), Rainbow crops (worth 50x more!), and environmental mutations like Wet, Chilled, or Frozen. Some super rare ones like Shocked and Celestial are worth hundreds of times more! Our Grow a Garden Calculator helps you see exactly how much these special crops are worth.
+            </p>
+          </div>
+
+          <div class="bg-white/60 backdrop-blur-sm rounded-2xl p-6 mb-6 shadow-lg border border-primary-light/30 transform hover:scale-105 transition-all duration-300">
+            <h3 class="text-lg font-bold text-gray-800 mb-3 flex items-center gap-2">
+              🧮 How does the Grow a Garden Calculator help me play better?
+            </h3>
+            <p class="text-gray-600 leading-relaxed">
+              Our Grow a Garden Calculator is like having a super smart friend who knows everything about the game! It tells you exactly how much your crops are worth with different mutations, so you can make the best choices about what to plant. Whether you're deciding between carrots or tomatoes, or wondering if that Golden mutation is worth it, our calculator gives you the answers instantly. It's the perfect tool for any Roblox player who wants to build the ultimate garden!
+            </p>
+          </div>
+
+          <div class="bg-white/60 backdrop-blur-sm rounded-2xl p-6 mb-6 shadow-lg border border-primary-light/30 transform hover:scale-105 transition-all duration-300">
+            <h3 class="text-lg font-bold text-gray-800 mb-3 flex items-center gap-2">
+              🔄 Is the Grow a Garden Calculator always up to date?
+            </h3>
+            <p class="text-gray-600 leading-relaxed">
+              Yes! We work hard to keep our Grow a Garden Calculator updated with the latest crop prices and mutation values from the Roblox game. If the game gets an update that changes prices, you can also edit the base values yourself to make sure you're getting the most accurate calculations. We want to make sure our calculator is always the best tool for Grow a Garden players!
+            </p>
+          </div>
+
+          <div class="bg-white/60 backdrop-blur-sm rounded-2xl p-6 mb-6 shadow-lg border border-primary-light/30 transform hover:scale-105 transition-all duration-300">
+            <h3 class="text-lg font-bold text-gray-800 mb-3 flex items-center gap-2">
+              🎯 How do I use the Grow a Garden Calculator?
+            </h3>
+            <p class="text-gray-600 leading-relaxed">
+              Using our Grow a Garden Calculator is super easy! First, pick your crop from the dropdown menu (like carrots, strawberries, or any of the 40+ plants). Then click on any mutations your crop has - Golden, Rainbow, Wet, Chilled, or any others. The calculator instantly shows you how much your crop is worth! It's that simple to become a master gardener in this popular Roblox simulation game.
+            </p>
+          </div>
+
+          <div class="bg-white/60 backdrop-blur-sm rounded-2xl p-6 mb-6 shadow-lg border border-primary-light/30 transform hover:scale-105 transition-all duration-300">
+            <h3 class="text-lg font-bold text-gray-800 mb-3 flex items-center gap-2">
+              📈 What makes crops worth more money in Grow a Garden?
+            </h3>
+            <p class="text-gray-600 leading-relaxed">
+              Great question! Every crop in Grow a Garden starts with a base price - carrots are cheap, but rare crops like Dragon Fruit are worth way more. Then mutations make them even more valuable! Golden crops are worth 20 times more, Rainbow crops are worth 50 times more, and you can stack environmental mutations too. Some pets and tools also help boost your profits. Our Grow a Garden Calculator knows all these rules and does the math for you!
+            </p>
+          </div>
+
+          <div class="bg-white/60 backdrop-blur-sm rounded-2xl p-6 mb-6 shadow-lg border border-primary-light/30 transform hover:scale-105 transition-all duration-300">
+            <h3 class="text-lg font-bold text-gray-800 mb-3 flex items-center gap-2">
+              🔗 Can I stack different mutations together in Grow a Garden?
+            </h3>
+            <p class="text-gray-600 leading-relaxed">
+              Absolutely! This is where Grow a Garden gets really exciting. You can combine different environmental mutations like Wet, Chilled, Chocolate, and Moonlit to make your crops worth even more money. For example, a carrot worth 18 coins with Wet (+1) and Chocolate (+1) mutations would be worth much more! Our Grow a Garden Calculator automatically adds up all your mutations so you can see the total value instantly. It's like having a math genius help you play!
+            </p>
+          </div>
+
+          <div class="bg-white/60 backdrop-blur-sm rounded-2xl p-6 mb-6 shadow-lg border border-primary-light/30 transform hover:scale-105 transition-all duration-300">
+            <h3 class="text-lg font-bold text-gray-800 mb-3 flex items-center gap-2">
+              🌱 What crops should I plant first in Grow a Garden?
+            </h3>
+            <p class="text-gray-600 leading-relaxed">
+              For beginners in this popular Roblox simulation game, start with easy crops like carrots, strawberries, and tomatoes! These grow quickly and help you learn the basics. As you earn more coins, try planting corn, blueberries, and raspberries. Once you're ready for the big leagues, invest in expensive crops like Dragon Fruit, Starfruit, and Moon Melon. Use our Grow a Garden Calculator to compare different crops and find the perfect planting strategy for your garden level!
+            </p>
+          </div>
+
+          <div class="bg-white/60 backdrop-blur-sm rounded-2xl p-6 mb-6 shadow-lg border border-primary-light/30 transform hover:scale-105 transition-all duration-300">
+            <h3 class="text-lg font-bold text-gray-800 mb-3 flex items-center gap-2">
+              🎮 Why is Grow a Garden so popular on Roblox?
+            </h3>
+            <p class="text-gray-600 leading-relaxed">
+              Grow a Garden is loved by millions of Roblox players because it's the perfect mix of relaxing and exciting! You can chill out by planting and growing crops, but there's also the thrill of discovering rare mutations and unlocking cute pets. The game has endless content with over 40 different crops, dozens of mutations, and special seasonal events. Plus, tools like our Grow a Garden Calculator help players optimize their strategies and have even more fun in this amazing simulation game!
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      let tomSelectInstance; // To store TomSelect instance
+
+      function populateCropSelect() {
+        const cropData = {
+          Carrot: 18,
+          "Chocolate Carrot": 16500,
+          Strawberry: 14,
+          Blueberry: 18,
+          "Orange Tulip": 767,
+          Nightshade: 2000,
+          "Red Lollipop": 70000,
+          Pear: 500,
+          "Candy Sunflower": 145000,
+          Tomato: 27,
+          Corn: 36,
+          Daffodil: 903,
+          Raspberry: 90,
+          Glowshroom: 175,
+          Watermelon: 2708,
+          Pumpkin: 3700,
+          Apple: 248,
+          Bamboo: 3610,
+          Cranberry: 1805,
+          Durian: 4513,
+          "Easter Egg": 4513,
+          Moonflower: 8500,
+          Starfruit: 15538,
+          Papaya: 1000,
+          Coconut: 361,
+          Cactus: 3068,
+          "Dragon Fruit": 4287,
+          Mango: 5866,
+          Peach: 271,
+          Pineapple: 1805,
+          Eggplant: 6769,
+          Moonglow: 18000,
+          Passionfruit: 3204,
+          Lemon: 500,
+          Banana: 1579,
+          "Blood Banana": 5415,
+          "Moon Melon": 16245,
+          Grape: 7085,
+          Mushroom: 136278,
+          Pepper: 7220,
+          Cacao: 9928,
+          "Moon Blossom": 50387,
+          "Cherry Blossom": 550,
+          "Candy Blossom": 93567,
+          Lotus: 20000,
+          "Venus Fly Trap": 17000,
+          "Cursed Fruit": 15000,
+          "Soul Fruit": 3000,
+          "Moon Mango": 23563,
+          Beanstalk: 18050,
+        };
+        const selectElement = document.getElementById("cropSelect");
+        const baseValueInputElement = document.getElementById("baseValueInput");
+        selectElement.innerHTML = ""; // Clear existing options
+
+        let firstCropValue = 0;
+        let isFirst = true;
+
+        for (const cropName in cropData) {
+          const option = document.createElement("option");
+          option.value = cropData[cropName]; // Store base value in option's value
+          option.textContent = `${cropName}`;
+          selectElement.appendChild(option);
+          if (isFirst) {
+            firstCropValue = cropData[cropName];
+            isFirst = false;
+          }
+        }
+
+        if (baseValueInputElement) {
+          baseValueInputElement.value = firstCropValue;
+        }
+
+        if (tomSelectInstance) {
+          tomSelectInstance.destroy();
+        }
+
+        tomSelectInstance = new TomSelect("#cropSelect", {
+          create: false,
+          sortField: {
+            field: "text",
+            direction: "asc",
+          },
+          onChange: function (selectedValue) {
+            // selectedValue is the crop's base value from option.value
+            if (baseValueInputElement && selectedValue) {
+              baseValueInputElement.value = selectedValue;
+            } else if (baseValueInputElement) {
+              const firstOption = selectElement.options[0];
+              if (firstOption) {
+                baseValueInputElement.value = firstOption.value;
+              } else {
+                baseValueInputElement.value = "";
+              }
+            }
+            calculateValue(); // Calculate when TomSelect changes the base value input
+          },
+        });
+
+        // Ensure baseValueInput is correctly set after TomSelect initializes
+        if (selectElement.options.length > 0 && baseValueInputElement) {
+          const initialTomSelectValue = tomSelectInstance.getValue();
+          if (initialTomSelectValue) {
+            baseValueInputElement.value = initialTomSelectValue;
+          } else if (selectElement.options[0]) {
+            baseValueInputElement.value = selectElement.options[0].value;
+          }
+        }
+      }
+
+      function calculateValue() {
+        const baseValue =
+          parseInt(document.getElementById("baseValueInput").value) || 0;
+        const growthMultiplier = parseInt(
+          document.querySelector('input[name="growthMutation"]:checked').value
+        );
+        const temperatureBonus = parseInt(
+          document.querySelector('input[name="temperatureMutation"]:checked')
+            .value
+        );
+
+        let otherEnvironmentalStackValue = 0;
+        const envCheckboxes = document.querySelectorAll(
+          ".env-mutation:checked"
+        );
+        envCheckboxes.forEach((checkbox) => {
+          otherEnvironmentalStackValue += parseInt(checkbox.value);
+        });
+
+        const totalEnvironmentalBonus =
+          temperatureBonus + otherEnvironmentalStackValue;
+        const totalValue =
+          baseValue * growthMultiplier * (1 + totalEnvironmentalBonus);
+
+        const valueDisplayElement = document.getElementById(
+          "calculatedValueDisplay"
+        );
+        if (valueDisplayElement) {
+          valueDisplayElement.textContent = totalValue.toLocaleString();
+        }
+      }
+
+      function addEventListeners() {
+        // TomSelect's onChange handles crop selection changes by updating baseValueInput
+        // So, we listen to baseValueInput directly.
+        const baseValueInputElement = document.getElementById("baseValueInput");
+        if (baseValueInputElement) {
+          baseValueInputElement.addEventListener("input", calculateValue);
+        }
+
+        const growthRadios = document.querySelectorAll(
+          'input[name="growthMutation"]'
+        );
+        growthRadios.forEach((radio) => {
+          radio.addEventListener("change", () => {
+            updateRadioStyles('growthMutation');
+            calculateValue();
+          });
+        });
+
+        const tempRadios = document.querySelectorAll(
+          'input[name="temperatureMutation"]'
+        );
+        tempRadios.forEach((radio) => {
+          radio.addEventListener("change", () => {
+            updateRadioStyles('temperatureMutation');
+            calculateValue();
+          });
+        });
+
+        const envCheckboxes = document.querySelectorAll(".env-mutation");
+        envCheckboxes.forEach((checkbox) => {
+          checkbox.addEventListener("change", () => {
+            updateCheckboxStyles();
+            calculateValue();
+          });
+        });
+      }
+
+      function updateRadioStyles(groupName) {
+        const radios = document.querySelectorAll(`input[name="${groupName}"]`);
+        radios.forEach((radio) => {
+          const label = radio.closest('label');
+          const div = label.querySelector('div');
+          if (radio.checked) {
+            div.classList.add('ring-4', 'ring-primary/50', 'border-primary');
+            div.classList.remove('border-transparent');
+          } else {
+            div.classList.remove('ring-4', 'ring-primary/50', 'border-primary');
+            div.classList.add('border-transparent');
+          }
+        });
+      }
+
+      function updateCheckboxStyles() {
+        const checkboxes = document.querySelectorAll('.env-mutation');
+        checkboxes.forEach((checkbox) => {
+          const label = checkbox.closest('label');
+          const div = label.querySelector('div');
+          if (checkbox.checked) {
+            div.classList.add('ring-4', 'ring-primary/50', 'border-primary');
+            div.classList.remove('border-transparent');
+          } else {
+            div.classList.remove('ring-4', 'ring-primary/50', 'border-primary');
+            div.classList.add('border-transparent');
+          }
+        });
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        populateCropSelect(); // Populates select, sets up TomSelect, and its onChange updates baseValueInput
+        addEventListeners(); // Add listeners to other inputs
+        updateRadioStyles('growthMutation'); // Initialize radio styles
+        updateRadioStyles('temperatureMutation'); // Initialize radio styles
+        updateCheckboxStyles(); // Initialize checkbox styles
+        calculateValue(); // Initial calculation on page load
+      });
+    </script>
+
+    <section class="mt-32" id="cta">
+      <div class="bg-gradient-to-br from-primary via-game to-game-pink rounded-3xl p-12 text-center shadow-2xl border-4 border-white/20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-primary/20 to-game-pink/20 animate-gradient-x"></div>
+        <div class="relative z-10">
+          <h2 class="text-3xl md:text-4xl font-black mb-6 text-white">
+            🚀 Ready to Maximize Your Garden?
+          </h2>
+          <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">
+            Join thousands of Roblox players using our calculator to build the ultimate garden and maximize their profits!
+          </p>
+          <div class="flex flex-wrap justify-center gap-6">
+            <a
+              href="#calculator"
+              class="bg-white text-primary font-bold py-4 px-8 rounded-2xl shadow-xl hover:shadow-2xl transform hover:scale-110 transition-all duration-300 border-4 border-white/50 hover:border-white"
+            >
+              🧮 Start Calculating →
+            </a>
+            <a
+              href="grow-a-garden-value/index.html"
+              class="bg-white/20 backdrop-blur-sm text-white font-bold py-4 px-8 rounded-2xl shadow-xl hover:shadow-2xl transform hover:scale-110 transition-all duration-300 border-4 border-white/30 hover:border-white/50"
+            >
+              📊 View All Crops →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="mt-32 py-12 bg-gradient-to-br from-gray-50 to-primary-lighter/30 rounded-t-3xl border-t border-primary-light/30">
+      <div class="text-center">
+        <div class="flex items-center justify-center mb-6">
+          <img src="assets/logo.png" alt="Grow a Garden Calculator" class="w-8 h-8 mr-3" />
+          <span class="text-lg font-bold bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent">
+            Grow a Garden Calculator
+          </span>
+        </div>
+        <p class="text-gray-600 mb-6 max-w-2xl mx-auto">
+          The ultimate tool for Roblox Grow a Garden players. Calculate crop values, discover mutations, and maximize your garden profits!
+        </p>
+        <div class="flex flex-wrap justify-center gap-6 mb-8">
+          <a href="index.html" class="text-gray-600 hover:text-primary transition-colors duration-300">Home</a>
+          <a href="grow-a-garden-value/index.html" class="text-gray-600 hover:text-primary transition-colors duration-300">Crop Values</a>
+          <a href="grow-a-garden-weather/index.html" class="text-gray-600 hover:text-primary transition-colors duration-300">Weather</a>
+          <a href="privacy/index.html" class="text-gray-600 hover:text-primary transition-colors duration-300">Privacy Policy</a>
+        </div>
+        <div class="border-t border-gray-200 pt-6">
+          <p class="text-sm text-gray-500">
+            &copy; <span id="copyright"></span> growagarden-calculator.github.io- All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("copyright").innerText =
+        new Date().getFullYear() + "";
+      document.addEventListener("DOMContentLoaded", function () {
+        const currentUrlHash = window.location.hash;
+        const currentUrlPathname = window.location.pathname;
+        const currentUrl = currentUrlHash
+          ? currentUrlPathname + currentUrlHash
+          : currentUrlPathname;
+
+        const navLinks = document.querySelectorAll(".nav-link");
+
+        navLinks.forEach((link) => {
+          const href = link.getAttribute("href");
+          // 检查当前路径是否包含blog，如果是则高亮blog链接
+          if (
+            currentUrlPathname.includes("blog/index.html") &&
+            href.includes("blogentry/index.html")
+          ) {
+            link.classList.add("text-primary");
+          }
+          // 其他精确匹配的情况
+          else if (href === currentUrl) {
+            link.classList.add("text-primary");
+          }
+        });
+
+        window.addEventListener("hashchange", function () {
+          const currentUrlHash = window.location.hash;
+          const currentUrlPathname = window.location.pathname;
+          const currentUrl = currentUrlHash
+            ? currentUrlPathname + currentUrlHash
+            : currentUrlPathname;
+
+          navLinks.forEach((link) => {
+            link.classList.remove("text-primary");
+            const href = link.getAttribute("href");
+            // 检查当前路径是否包含blog，如果是则高亮blog链接
+            if (
+              currentUrlPathname.includes("blog/index.html") &&
+              href === "blogentry/index.html"
+            ) {
+              link.classList.add("text-primary");
+            }
+            // 其他精确匹配的情况
+            else if (href === currentUrl) {
+              link.classList.add("text-primary");
+            }
+          });
+        });
+      });
+
+      document
+        .getElementById("menu-toggle")
+        .addEventListener("click", function () {
+          const navMenu = document.getElementById("nav-menu");
+          navMenu.classList.toggle("hidden");
+        });
+
+      // 语言切换功能
+
+      function copyPageUrl() {
+        navigator.clipboard
+          .writeText(window.location.href)
+          .then(() => {
+            const toast = document.createElement("div");
+            toast.textContent = "Link copied!";
+            toast.style.cssText = `
+          position: fixed;
+          bottom: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+          background: rgba(255, 255, 255, 0.9);
+          color: #000;
+          padding: 8px 16px;
+          border-radius: 4px;
+          z-index: 1000;
+      `;
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+              toast.remove();
+            }, 2000);
+          })
+          .catch((err) => {
+            console.error("Failed to copy: ", err);
+          });
+      }
+    </script>
+  </body>
+
+</html>

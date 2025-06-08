@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+
+    <title>Grow a Garden Value List - Live Item List</title>
+    <meta
+      name="description"
+      content="Regularly updated items information in Grow a Garden. Such as rarity, category, type, buy/sell prices, and even like multi-harvest and shop availability."
+    />
+
+    <meta
+      property="og:title"
+      content="Grow a Garden Value List - Live Item List"
+    />
+    <meta
+      property="og:description"
+      content="Regularly updated items information in Grow a Garden. Such as rarity, category, type, buy/sell prices, and even like multi-harvest and shop availability."
+    />
+    <meta property="og:url" content="index.html" />
+    <meta property="og:site_name" content="growagardencalculator.online" />
+    <meta property="og:image" content="../assets/growagardencalculator.png" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Grow a Garden Value List - Live Item List"
+    />
+    <meta
+      name="twitter:description"
+      content="Regularly updated items information in Grow a Garden. Such as rarity, category, type, buy/sell prices, and even like multi-harvest and shop availability."
+    />
+    <meta name="twitter:image" content="../assets/growagardencalculator.png" />
+    <link rel="canonical" href="index.html" />
+
+    <meta name="google-adsense-account" content="ca-pub-5331303144323541" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../assets/favicon/site.webmanifest">
+    <link rel="stylesheet" href="../css/normalize.min.css" />
+    <link rel="stylesheet" href="../css/fonts.css" />
+    <script src="../js/tailwindcss.js"></script>
+
+    <!-- tom-select -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#10B981",
+              "primary-dark": "#059669",
+              "primary-light": "#D1FAE5",
+              "primary-lighter": "#ECFDF5",
+              accent: "#F59E0B",
+              game: "#8B5CF6",
+              "game-pink": "#EC4899",
+              "game-blue": "#3B82F6",
+            },
+            animation: {
+              'gradient-x': 'gradient-x 15s ease infinite',
+              'float': 'float 6s ease-in-out infinite',
+              'glow': 'glow 2s ease-in-out infinite alternate',
+            },
+            keyframes: {
+              'gradient-x': {
+                '0%, 100%': {
+                  'background-size': '200% 200%',
+                  'background-position': 'left center'
+                },
+                '50%': {
+                  'background-size': '200% 200%',
+                  'background-position': 'right center'
+                },
+              },
+              'float': {
+                '0%, 100%': { transform: 'translateY(0px)' },
+                '50%': { transform: 'translateY(-10px)' },
+              },
+              'glow': {
+                'from': { 'box-shadow': '0 0 20px #10B981' },
+                'to': { 'box-shadow': '0 0 30px #10B981, 0 0 40px #10B981' },
+              },
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="w-full max-w-7xl m-auto px-4 text-gray-800 font-sans bg-gradient-to-br from-primary-lighter via-white to-blue-50 min-h-screen">
+    <header class="h-16 flex justify-between backdrop-blur-md bg-white/80 border-b border-primary-light/50 items-center px-6 rounded-b-2xl shadow-lg">
+      <a
+        href="../index.html"
+        alt="Grow a Garden Calculator Home"
+        aria-label="Grow a Garden Calculator Homepage"
+        class="flex items-center"
+      >
+        <img
+          src="../assets/logo.png"
+          alt="Grow a Garden Calculator"
+          class="w-10 h-10"
+        />
+
+        <span class="ml-3 font-black text-lg bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent"
+          >Grow a Garden Calculator</span
+        >
+      </a>
+      <div class="flex items-center gap-4">
+        <nav id="nav-menu" class="hidden lg:block">
+          <div
+            class="bg-white/90 lg:rounded-full flex flex-col fixed z-[9999] top-16 right-4 lg:static p-4 text-sm lg:text-base lg:flex-row items-center gap-6 font-semibold backdrop-blur-md shadow-xl border border-primary-light/50"
+          >
+            <a
+              href="../index.html"
+              class="nav-link text-gray-700 hover:text-primary hover:bg-primary-light/50 px-4 py-2 rounded-xl transition-all duration-300 transform hover:scale-105"
+              >Home</a
+            >
+
+            <a
+              href="index.html"
+              class="nav-link text-gray-700 hover:text-primary hover:bg-primary-light/50 px-4 py-2 rounded-xl transition-all duration-300 transform hover:scale-105"
+              >List &amp; Info</a
+            >
+
+            <a
+              href="../index.html#faqs"
+              class="nav-link text-gray-700 hover:text-primary hover:bg-primary-light/50 px-4 py-2 rounded-xl transition-all duration-300 transform hover:scale-105"
+              >FAQs</a
+            >
+          </div>
+        </nav>
+        <button id="menu-toggle" class="lg:hidden p-2">
+          <img src="../assets/hum.svg" class="w-6 h-6" alt="unfold" />
+        </button>
+      </div>
+    </header>
+
+    <main class="mt-24">
+      <!-- Hero Section -->
+      <section class="text-center mb-16">
+        <div class="relative overflow-hidden bg-gradient-to-br from-primary-lighter via-white to-game-blue/10 rounded-3xl p-12 shadow-2xl border border-primary-light/30">
+          <div class="absolute inset-0 bg-gradient-to-r from-primary/5 to-game/5 animate-gradient-x"></div>
+          <div class="relative z-10">
+            <h1 class="text-4xl md:text-5xl font-black mb-6 bg-gradient-to-r from-primary via-game to-game-pink bg-clip-text text-transparent animate-float">
+              📊 Grow a Garden Value List
+            </h1>
+            <p class="text-lg md:text-xl text-gray-600 mb-8 max-w-4xl mx-auto leading-relaxed">
+              Live value list for all items in <span class="font-bold text-primary">Grow a Garden</span>! 
+              Track prices, rarity, and trading values for crops, pets, and gear.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Category Filters -->
+      <section class="mb-12">
+        <div class="bg-white/90 backdrop-blur-md rounded-2xl p-6 shadow-xl border border-primary-light/50">
+          <h2 class="text-xl font-bold text-gray-800 mb-4 text-center">🔍 Filter by Category</h2>
+          <div id="categoryFilterContainer" class="flex flex-wrap justify-center gap-3">
+            <!-- Category filter buttons will be dynamically injected here -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Items Grid -->
+      <section class="mb-16">
+        <div id="loadingMessage" class="text-center py-16">
+          <div class="bg-white/90 backdrop-blur-md rounded-2xl p-8 shadow-xl border border-primary-light/50">
+            <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
+            <p class="text-xl text-gray-600">Loading item data...</p>
+          </div>
+        </div>
+        <div id="errorMessage" class="text-center py-16 hidden">
+          <div class="bg-red-50 border border-red-200 rounded-2xl p-8 shadow-xl">
+            <div class="text-4xl mb-4">❌</div>
+            <p class="text-xl text-red-600"></p>
+          </div>
+        </div>
+        <div
+          id="valueListContainer"
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+        >
+          <!-- Item cards will be dynamically injected here -->
+        </div>
+      </section>
+
+      <!-- Information Section -->
+      <section class="mt-32">
+        <div class="bg-gradient-to-br from-white via-primary-lighter/30 to-game-blue/10 rounded-3xl p-12 shadow-2xl border border-primary-light/30">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-black mb-6 bg-gradient-to-r from-primary to-game bg-clip-text text-transparent">
+              💎 What is Grow a Garden Values?
+            </h2>
+            <p class="text-xl text-gray-600 font-semibold">Understanding item worth in the popular Roblox simulation game</p>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left mb-12">
+            <div class="space-y-6">
+              <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-primary-light/50 transform hover:scale-105 transition-all duration-300">
+                <div class="flex items-start gap-4">
+                  <div class="text-3xl">💰</div>
+                  <div>
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">Real-Time Item Values</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                      Grow a Garden Values shows how much your items are worth in the game! This includes fruits, seeds, gear, and pets measured in Sheckles or trading items like Carrots.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-primary-light/50 transform hover:scale-105 transition-all duration-300">
+                <div class="flex items-start gap-4">
+                  <div class="text-3xl">🔄</div>
+                  <div>
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">Dynamic Pricing</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                      Prices change based on rarity, special mutations (like Moonlit or Zombified), and shop availability. Our system tracks these changes daily!
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-6">
+              <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-primary-light/50 transform hover:scale-105 transition-all duration-300">
+                <div class="flex items-start gap-4">
+                  <div class="text-3xl">🛡️</div>
+                  <div>
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">Fair Trading Protection</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                      Know the real worth of your items so you don't get tricked! Our list helps you trade fairly and avoid getting scammed in this trust-based system.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-primary-light/50 transform hover:scale-105 transition-all duration-300">
+                <div class="flex items-start gap-4">
+                  <div class="text-3xl">📈</div>
+                  <div>
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">Smart Investment Decisions</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                      Focus on growing and collecting the most valuable items. Special mutations like Golden or Rainbow can make your items worth much more!
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Trading Tips -->
+          <div class="bg-gradient-to-r from-red-50 to-orange-50 rounded-2xl p-8 border-2 border-red-200 mb-8">
+            <h3 class="text-2xl font-bold text-red-700 mb-4 flex items-center gap-2">
+              🚨 Trading Safety Tips
+            </h3>
+            <p class="text-gray-700 mb-4">
+              Grow a Garden uses a trust-based gifting system for trading. This means you need to be extra careful! Here's how to stay safe:
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <ul class="space-y-2">
+                <li class="flex items-center gap-2">
+                  <span class="text-green-500">✓</span>
+                  <span class="text-gray-700">Always check our value list before trading</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="text-green-500">✓</span>
+                  <span class="text-gray-700">Don't trade with players you don't trust</span>
+                </li>
+              </ul>
+              <ul class="space-y-2">
+                <li class="flex items-center gap-2">
+                  <span class="text-green-500">✓</span>
+                  <span class="text-gray-700">Be careful with items worth billions of Sheckles</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="text-green-500">✓</span>
+                  <span class="text-gray-700">Ask for help in the community if you're unsure</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- High-Value Items -->
+          <div class="bg-gradient-to-r from-yellow-50 to-amber-50 rounded-2xl p-8 border-2 border-yellow-200">
+            <h3 class="text-2xl font-bold text-amber-700 mb-4 flex items-center gap-2">
+              🌟 Popular High-Value Items
+            </h3>
+            <p class="text-gray-700 mb-4">Some of the most valuable items in Grow a Garden include:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <ul class="space-y-2">
+                <li class="flex items-center gap-2">
+                  <span class="text-2xl">⚡</span>
+                  <span class="font-semibold text-gray-800">Shocked Mango</span>
+                  <span class="text-gray-600">- A rare mutated fruit</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="text-2xl">🐉</span>
+                  <span class="font-semibold text-gray-800">Dragon Fruit</span>
+                  <span class="text-gray-600">- One of the most expensive fruits</span>
+                </li>
+              </ul>
+              <ul class="space-y-2">
+                <li class="flex items-center gap-2">
+                  <span class="text-2xl">🍫</span>
+                  <span class="font-semibold text-gray-800">Chocolate Sprinkler</span>
+                  <span class="text-gray-600">- Valuable gardening gear</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="text-2xl">🐾</span>
+                  <span class="font-semibold text-gray-800">Rare Pets</span>
+                  <span class="text-gray-600">- Some can be worth billions!</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const listContainer = document.getElementById("valueListContainer");
+        const loadingMessage = document.getElementById("loadingMessage");
+        const errorMessage = document.getElementById("errorMessage");
+        const categoryFilterContainer = document.getElementById(
+          "categoryFilterContainer"
+        );
+        const dataUrl = "../assets/garden-values.json";
+        let allFetchedItems = []; // Store all items for filtering
+
+        function getRarityClass(rarity) {
+          if (!rarity) return "text-gray-600"; // Default if rarity is undefined or null
+          const r = rarity.toLowerCase();
+          if (r === "common") return "text-gray-500";
+          if (r === "uncommon") return "text-primary";
+          if (r === "rare") return "text-blue-500";
+          if (r === "epic") return "text-purple-500";
+          if (r === "legendary") return "text-yellow-500";
+          if (r === "mythic") return "text-red-500";
+          return "text-gray-600"; // Fallback
+        }
+
+        function getRarityBg(rarity) {
+          if (!rarity) return "from-gray-50 to-gray-100"; // Default
+          const r = rarity.toLowerCase();
+          if (r === "common") return "from-gray-50 to-gray-100";
+          if (r === "uncommon") return "from-primary-lighter to-primary-light";
+          if (r === "rare") return "from-blue-50 to-blue-100";
+          if (r === "epic") return "from-purple-50 to-purple-100";
+          if (r === "legendary") return "from-yellow-50 to-yellow-100";
+          if (r === "mythic") return "from-red-50 to-red-100";
+          return "from-gray-50 to-gray-100"; // Fallback
+        }
+
+        function formatDemand(demand) {
+          const numDemand = parseInt(demand);
+          return isNaN(numDemand) ? "N/A" : numDemand;
+        }
+
+        function formatValue(value) {
+          if (
+            value === "N/A" ||
+            value === null ||
+            value === undefined ||
+            value === ""
+          )
+            return "N/A";
+          const num = parseInt(value);
+          if (!isNaN(num)) {
+            return num.toLocaleString();
+            blog}
+          return value;
+        }
+
+        async function fetchItemData() {
+          loadingMessage.classList.remove("hidden");
+          errorMessage.classList.add("hidden");
+          listContainer.innerHTML = "";
+
+          try {
+            const response = await fetch(dataUrl);
+            if (!response.ok) {
+              const errorData = await response.text();
+              throw new Error(
+                `HTTP error! status: ${response.status}, message: ${errorData}`
+              );
+            }
+            const items = await response.json();
+
+            loadingMessage.classList.add("hidden");
+
+            if (items && items.length > 0) {
+              allFetchedItems = items; // Store all items
+              const categories = [
+                ...new Set(items.map((item) => item.category).filter(Boolean)),
+              ].sort();
+              createCategoryFilters(categories, allFetchedItems);
+              displayItems(allFetchedItems); // Display all items initially
+            } else {
+              listContainer.innerHTML =
+                '<div class="col-span-full text-center py-16"><div class="bg-white/90 backdrop-blur-md rounded-2xl p-8 shadow-xl border border-primary-light/50"><p class="text-xl text-gray-600">No items found or data file returned empty list.</p></div></div>';
+            }
+          } catch (error) {
+            console.error("Error fetching item data:", error);
+            loadingMessage.classList.add("hidden");
+            const errorDiv = errorMessage.querySelector('p');
+            errorDiv.textContent = `Failed to load item data. ${error.message}. Please try refreshing the page.`;
+            errorMessage.classList.remove("hidden");
+          }
+        }
+
+        function createCategoryFilters(categories, allItems) {
+          categoryFilterContainer.innerHTML = ""; // Clear existing filters
+
+          const createButton = (text, filterValue) => {
+            const button = document.createElement("button");
+            button.className =
+              "bg-white border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold py-2 px-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg";
+            button.textContent = text;
+            button.addEventListener("click", () => {
+              // Highlight active button
+              Array.from(categoryFilterContainer.children).forEach((btn) => {
+                btn.className = "bg-white border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold py-2 px-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg";
+              });
+              button.className = "bg-primary border-2 border-primary text-white font-semibold py-2 px-4 rounded-xl shadow-lg transform scale-105";
+              displayItems(allItems, filterValue);
+            });
+            return button;
+          };
+
+          // 'All' button
+          const allButton = createButton("All", null);
+          allButton.className = "bg-primary border-2 border-primary text-white font-semibold py-2 px-4 rounded-xl shadow-lg transform scale-105"; // Default active
+          categoryFilterContainer.appendChild(allButton);
+
+          categories.forEach((category) => {
+            categoryFilterContainer.appendChild(
+              createButton(category, category)
+            );
+          });
+        }
+
+        function displayItems(itemsToDisplay, filterCategory = null) {
+          listContainer.innerHTML = ""; // Clear existing items
+          const filteredItems = filterCategory
+            ? itemsToDisplay.filter((item) => item.category === filterCategory)
+            : itemsToDisplay;
+
+          if (filteredItems.length === 0 && filterCategory) {
+            listContainer.innerHTML = `<div class="col-span-full text-center py-16"><div class="bg-white/90 backdrop-blur-md rounded-2xl p-8 shadow-xl border border-primary-light/50"><p class="text-xl text-gray-600">No items found in the '${filterCategory}' category.</p></div></div>`;
+            return;
+          } else if (filteredItems.length === 0) {
+            listContainer.innerHTML =
+              '<div class="col-span-full text-center py-16"><div class="bg-white/90 backdrop-blur-md rounded-2xl p-8 shadow-xl border border-primary-light/50"><p class="text-xl text-gray-600">No items found.</p></div></div>';
+            return;
+          }
+
+          filteredItems.forEach((item) => {
+            const card = document.createElement("div");
+            const itemRarity = item.rarity || "common";
+            card.className =
+              `bg-gradient-to-br ${getRarityBg(itemRarity)} rounded-2xl p-6 shadow-xl border-2 border-white/50 transform hover:scale-105 transition-all duration-300 hover:shadow-2xl backdrop-blur-sm`;
+
+            let sellValue =
+              item.metadata && item.metadata.sellValue !== undefined
+                ? item.metadata.sellValue
+                : "N/A";
+            let buyPrice =
+              item.metadata && item.metadata.buyPrice !== undefined
+                ? item.metadata.buyPrice
+                : "N/A";
+            let itemType =
+              item.metadata && item.metadata.type ? item.metadata.type : "N/A";
+
+            card.innerHTML = `
+              <div class="flex flex-col h-full">
+                <div class="w-full h-32 mb-4 flex items-center justify-center overflow-hidden rounded-xl bg-white/50 p-2 shadow-inner">
+                    <img src="${item.image || "../assets/logo.png"}" alt="${
+              item.name || "Item Image"
+            }" class="max-w-full max-h-full object-contain">
+                </div>
+                <div class="flex-grow">
+                  <h3 class="text-lg font-bold mb-2 ${getRarityClass(
+                    itemRarity
+                  )}">${item.name || "Unnamed Item"}</h3>
+                  <div class="space-y-1 text-sm text-gray-600 mb-4">
+                    <p><span class="font-medium">Category:</span> ${
+                      item.category || "N/A"
+                    }</p>
+                    <p><span class="font-medium">Type:</span> ${itemType}</p>
+                    <p><span class="font-medium">Rarity:</span> <span class="${getRarityClass(
+                      itemRarity
+                    )} font-semibold">${itemRarity}</span></p>
+                  </div>
+                  
+                  <div class="bg-white/60 rounded-xl p-3 space-y-2 text-sm">
+                    <div class="flex justify-between">
+                      <span class="text-gray-600">Demand:</span>
+                      <span class="font-semibold text-accent">${formatDemand(
+                        item.demand
+                      )}</span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span class="text-gray-600">Sell Value:</span>
+                      <span class="font-semibold text-primary">${formatValue(
+                        sellValue
+                      )}</span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span class="text-gray-600">Buy Price:</span>
+                      <span class="font-semibold text-primary">${formatValue(
+                        buyPrice
+                      )}</span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span class="text-gray-600">Multi Harvest:</span>
+                      <span class="font-semibold ${item.metadata.multiHarvest ? 'text-green-600' : 'text-gray-500'}">${
+                        item.metadata.multiHarvest ? "Yes" : "No"
+                      }</span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span class="text-gray-600">Shop Amount:</span>
+                      <span class="font-semibold text-gray-700">${
+                        item.metadata.amountInShop || "N/A"
+                      }</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-4 pt-3 border-t border-white/50">
+                  <p class="text-xs text-gray-500 text-center">
+                    Updated: ${new Date(
+                      item.updatedAt || Date.now()
+                    ).toLocaleDateString()}
+                  </p>
+                </div>
+              </div>
+            `;
+            listContainer.appendChild(card);
+          });
+        }
+
+        fetchItemData();
+      });
+    </script>
+
+    <!-- CTA Section -->
+    <section class="mt-32" id="cta">
+      <div class="bg-gradient-to-br from-primary via-game to-game-pink rounded-3xl p-12 text-center shadow-2xl border-4 border-white/20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-primary/20 to-game-pink/20 animate-gradient-x"></div>
+        <div class="relative z-10">
+          <h2 class="text-3xl md:text-4xl font-black mb-6 text-white">
+            🧮 Ready to Calculate Your Garden Value?
+          </h2>
+          <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">
+            Use our advanced calculator to determine the exact value of your crops with mutations and maximize your profits!
+          </p>
+          <div class="flex flex-wrap justify-center gap-6">
+            <a
+              href="../index.html"
+              class="bg-white text-primary font-bold py-4 px-8 rounded-2xl shadow-xl hover:shadow-2xl transform hover:scale-110 transition-all duration-300 border-4 border-white/50 hover:border-white"
+            >
+              🧮 Mutation Calculator →
+            </a>
+            <a
+              href="../grow-a-garden-weather/index.html"
+              class="bg-white/20 backdrop-blur-sm text-white font-bold py-4 px-8 rounded-2xl shadow-xl hover:shadow-2xl transform hover:scale-110 transition-all duration-300 border-4 border-white/30 hover:border-white/50"
+            >
+              🌤️ Check Weather →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-32 py-12 bg-gradient-to-br from-gray-50 to-primary-lighter/30 rounded-t-3xl border-t border-primary-light/30">
+      <div class="text-center">
+        <div class="flex items-center justify-center mb-6">
+          <img src="../assets/logo.png" alt="Grow a Garden Calculator" class="w-8 h-8 mr-3" />
+          <span class="text-lg font-bold bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent">
+            Grow a Garden Calculator
+          </span>
+        </div>
+        <p class="text-gray-600 mb-6 max-w-2xl mx-auto">
+          The ultimate tool for Roblox Grow a Garden players. Calculate crop values, discover mutations, and maximize your garden profits!
+        </p>
+        <div class="flex flex-wrap justify-center gap-6 mb-8">
+          <a href="../index.html" class="text-gray-600 hover:text-primary transition-colors duration-300">Home</a>
+          <a href="index.html" class="text-gray-600 hover:text-primary transition-colors duration-300">Crop Values</a>
+          <a href="../grow-a-garden-weather/index.html" class="text-gray-600 hover:text-primary transition-colors duration-300">Weather</a>
+          <a href="../privacy/index.html" class="text-gray-600 hover:text-primary transition-colors duration-300">Privacy Policy</a>
+        </div>
+        <div class="border-t border-gray-200 pt-6">
+          <p class="text-sm text-gray-500">
+            &copy; <span id="copyright"></span> growagarden-calculator.github.io- All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("copyright").innerText =
+        new Date().getFullYear() + "";
+      document.addEventListener("DOMContentLoaded", function () {
+        const currentUrlHash = window.location.hash;
+        const currentUrlPathname = window.location.pathname;
+        const currentUrl = currentUrlHash
+          ? currentUrlPathname + currentUrlHash
+          : currentUrlPathname;
+
+        const navLinks = document.querySelectorAll(".nav-link");
+
+        navLinks.forEach((link) => {
+          const href = link.getAttribute("href");
+          // 检查当前路径是否包含blog，如果是则高亮blog链接
+          if (
+            currentUrlPathname.includes("../blog/index.html") &&
+            href.includes("../blogentry/index.html")
+          ) {
+            link.classList.add("text-primary");
+          }
+          // 其他精确匹配的情况
+          else if (href === currentUrl) {
+            link.classList.add("text-primary");
+          }
+        });
+
+        window.addEventListener("hashchange", function () {
+          const currentUrlHash = window.location.hash;
+          const currentUrlPathname = window.location.pathname;
+          const currentUrl = currentUrlHash
+            ? currentUrlPathname + currentUrlHash
+            : currentUrlPathname;
+
+          navLinks.forEach((link) => {
+            link.classList.remove("text-primary");
+            const href = link.getAttribute("href");
+            // 检查当前路径是否包含blog，如果是则高亮blog链接
+            if (
+              currentUrlPathname.includes("../blog/index.html") &&
+              href === "../blogentry/index.html"
+            ) {
+              link.classList.add("text-primary");
+            }
+            // 其他精确匹配的情况
+            else if (href === currentUrl) {
+              link.classList.add("text-primary");
+            }
+          });
+        });
+      });
+
+      document
+        .getElementById("menu-toggle")
+        .addEventListener("click", function () {
+          const navMenu = document.getElementById("nav-menu");
+          navMenu.classList.toggle("hidden");
+        });
+
+      function copyPageUrl() {
+        navigator.clipboard
+          .writeText(window.location.href)
+          .then(() => {
+            const toast = document.createElement("div");
+            toast.textContent = "Link copied!";
+            toast.style.cssText = `
+          position: fixed;
+          bottom: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+          background: rgba(255, 255, 255, 0.9);
+          color: #000;
+          padding: 8px 16px;
+          border-radius: 4px;
+          z-index: 1000;
+      `;
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+              toast.remove();
+            }, 2000);
+          })
+          .catch((err) => {
+            console.error("Failed to copy: ", err);
+          });
+      }
+    </script>
+  </body>
+</html>
