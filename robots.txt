@@ -2,5 +2,6 @@ User-Agent: *
 Allow: /
 Disallow: /privacy-policy/
 Disallow: /terms-of-service/
+Disallow: /_next/
 
 Sitemap: https://growagarden-calculator.github.io/sitemap.xml
